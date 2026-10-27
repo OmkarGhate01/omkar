@@ -1,0 +1,39 @@
+name: Portfolio quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Verify required public portfolio files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s index.html
+          test -s README.md
+          test -s prompts/production-voice-agent.md
+          test -s prompts/customer-support-agent.md
+          test -s prompts/prompt-qa-checklist.md
+          test -s case-studies/voice-agent-architecture.md
+          grep -q "Omkar Ghate" index.html
+          grep -q "AI Prompt Engineering" index.html
+          echo "Portfolio files and key identity text are present."
+      - name: Check local prompt links
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in prompts/production-voice-agent.md prompts/customer-support-agent.md prompts/prompt-qa-checklist.md case-studies/voice-agent-architecture.md; do
+            test -s "$file"
+          done
+          echo "Prompt library checks passed."
