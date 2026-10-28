@@ -1,0 +1,13 @@
+# robots.txt — omkar-portfolio-ydov.onrender.com
+# Allow all crawlers full access
+
+User-agent: *
+Allow: /
+Disallow: /demos/
+Disallow: /certs/
+
+# Sitemap
+Sitemap: https://omkar-portfolio-ydov.onrender.com/sitemap.xml
+
+# Crawl-delay for well-behaved bots
+Crawl-delay: 10

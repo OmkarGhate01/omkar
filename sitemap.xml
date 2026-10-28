@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://omkar-portfolio-ydov.onrender.com/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omkar-portfolio-ydov.onrender.com/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://omkar-portfolio-ydov.onrender.com/" />
+    <image:image>
+      <image:loc>https://omkar-portfolio-ydov.onrender.com/assets/omkar-1.jpg</image:loc>
+      <image:title>Omkar Vijay Ghate — Agentic AI Architect</image:title>
+      <image:caption>Portrait of Omkar Vijay Ghate, Mumbai-based Agentic AI Architect and Voice Agent Builder</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://omkar-portfolio-ydov.onrender.com/assets/omkar-2.jpg</image:loc>
+      <image:title>Omkar Ghate — Mumbai</image:title>
+    </image:image>
+  </url>
+</urlset>

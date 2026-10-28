@@ -1,0 +1,27 @@
+{
+  "name": "Omkar Vijay Ghate — Agentic AI Architect",
+  "short_name": "Omkar Ghate",
+  "description": "Portfolio of Omkar Vijay Ghate — Agentic AI Architect, Voice Agent Builder and Prompt Engineer based in Mumbai, India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08080A",
+  "theme_color": "#08080A",
+  "lang": "en-IN",
+  "orientation": "portrait-primary",
+  "categories": ["technology", "portfolio", "business"],
+  "icons": [
+    {
+      "src": "/assets/omkar-1.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://omkar-portfolio-ydov.onrender.com/"
+    }
+  ],
+  "prefer_related_applications": false
+}
