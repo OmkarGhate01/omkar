@@ -392,7 +392,12 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .agent-play{ width:44px; height:44px; border-radius:50%; border:none; background:var(--ac,#5B5FEF); color:#fff; font-size:.9rem; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:opacity .15s,transform .2s; }
 .agent-play:hover{ opacity:.88; transform:scale(1.07); }
 .agent-wave{ display:flex; align-items:center; gap:3px; flex:1; height:38px; }
-.agent-wave span{ display:block; width:5px; border-radius:3px; background:color-mix(in srgb,var(--ac,#5B5FEF) 55%,transparent); transition:height .3s; flex-shrink:0; }
+.agent-wave span{ display:block; width:5px; border-radius:3px; background:color-mix(in srgb,var(--ac,#5B5FEF) 55%,transparent); flex-shrink:0; animation:wv 1.2s ease-in-out infinite; }
+.agent-wave span:nth-child(2n){ animation-delay:.15s; }
+.agent-wave span:nth-child(3n){ animation-delay:.3s; }
+.agent-wave span:nth-child(4n){ animation-delay:.45s; }
+.agent-wave span:nth-child(5n){ animation-delay:.6s; }
+@keyframes wv{ 0%,100%{ transform:scaleY(1); } 50%{ transform:scaleY(0.3); } }
 .agent-listen{ font-size:.6rem; opacity:.4; letter-spacing:.08em; white-space:nowrap; }
 .agent-vdemo{ width:100%; border-radius:10px; max-height:280px; object-fit:cover; background:#000; }
 .agent-no-media{ display:flex; align-items:center; justify-content:center; height:120px; border:1px dashed rgba(237,235,230,.12); border-radius:10px; }
@@ -423,9 +428,23 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .vc-play{ width:46px; height:46px; border-radius:50%; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.9rem; color:#fff; flex-shrink:0; transition:opacity .15s,transform .2s; }
 .vc-play:hover{ opacity:.85; transform:scale(1.06); }
 .vc-wave{ display:flex; align-items:center; gap:3px; flex:1; height:38px; }
-.vc-wave span{ display:block; width:5px; border-radius:3px; flex-shrink:0; }
+.vc-wave span{ display:block; width:5px; border-radius:3px; flex-shrink:0; animation:wv 1.2s ease-in-out infinite; }
+.vc-wave span:nth-child(2n){ animation-delay:.15s; }
+.vc-wave span:nth-child(3n){ animation-delay:.3s; }
+.vc-wave span:nth-child(4n){ animation-delay:.45s; }
+.vc-wave span:nth-child(5n){ animation-delay:.6s; }
 .vc-video{ width:100%; border-radius:10px; max-height:320px; object-fit:cover; background:#000; }
 .vc-caption{ font-size:.78rem; font-weight:700; opacity:.65; text-align:center; margin:0; }
+
+/* books */
+@media(min-width:680px){ .books-section > div[style*="grid"]{ grid-template-columns:1fr 1fr !important; gap:1.6rem !important; } }
+.book-card{ display:block; text-decoration:none; color:inherit; background:rgba(13,13,15,.8); border:1px solid rgba(237,235,230,.1); border-radius:14px; padding:1.8rem 1.6rem; transition:border-color .2s,transform .2s; }
+.book-card:hover{ border-color:rgba(237,235,230,.28); transform:translateY(-3px); }
+.book-label{ font-size:.68rem; font-weight:700; letter-spacing:.12em; opacity:.45; margin-bottom:.7rem; }
+.book-title{ font-size:clamp(1.3rem,3.5vw,1.75rem); font-weight:800; line-height:1.2; letter-spacing:-.02em; margin:0 0 .8rem; }
+.book-desc{ font-size:.87rem; opacity:.55; line-height:1.7; margin:0 0 1.2rem; }
+.book-cta{ font-size:.68rem; font-weight:700; letter-spacing:.1em; opacity:.6; }
+.book-card:hover .book-cta{ opacity:1; }
 
 /* ═════════ CH.05 — CALL LOG ═════════ */
 .log{ padding:8rem 0 8rem; }
@@ -733,6 +752,26 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
     </div>
   </div>
 
+  <!-- ░░ BOOKS ░░ -->
+  <div class="books-section rv" style="padding:5rem 0 0;border-top:1px solid rgba(237,235,230,.08);">
+    <h2 class="disp" style="font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-.04em;margin:0 0 .5rem">Books I've written</h2>
+    <p style="opacity:.45;font-size:.9rem;max-width:48ch;margin:0 0 2.8rem;line-height:1.65">Published on Amazon. Two books on the ideas I think about most — AI and human behaviour.</p>
+    <div style="display:grid;grid-template-columns:1fr;gap:1.2rem;">
+      <a class="book-card rv" href="https://amzn.in/d/03zRwIwu" target="_blank" rel="noopener" aria-label="Your First AI Agent on Amazon">
+        <div class="book-label mono">Book 01 &nbsp;·&nbsp; AI &amp; Automation</div>
+        <h3 class="book-title">Your First AI Agent</h3>
+        <p class="book-desc">A practical guide for small business owners who want to deploy their first conversational AI agent — without writing a single line of code. From choosing a platform to going live.</p>
+        <span class="book-cta mono">Read on Amazon ↗</span>
+      </a>
+      <a class="book-card rv" href="https://amzn.in/d/02RqwljW" target="_blank" rel="noopener" aria-label="The 36 Laws of Quiet Power on Amazon">
+        <div class="book-label mono">Book 02 &nbsp;·&nbsp; Human Behaviour</div>
+        <h3 class="book-title">The 36 Laws of Quiet Power</h3>
+        <p class="book-desc">Inspired by the structure of the 48 Laws of Power — a modern framework of influence, restraint and strategy for an AI-aware world. Laws that hold whether you're building a company or navigating a room.</p>
+        <span class="book-cta mono">Read on Amazon ↗</span>
+      </a>
+    </div>
+  </div>
+
   <h2 class="disp rv" style="font-size:clamp(2.2rem,7vw,4.8rem);margin:5rem 0 2.2rem">Other builds</h2>
   <div class="filters" id="workFilters" role="group" aria-label="Filter work"></div>
   <div class="wgrid" id="wgrid"></div>
@@ -898,7 +937,7 @@ const SKILLS = [
 const RADAR_SHORT = ['Voice','Prompting','Automation','Clients','Process','Creative','Leadership','Data'];
 
 const PROJECTS = [
-  { c:'voice', k:'Finideas', industry:'Finance', t:'Investor support — Viraj', agentName:'VIRAJ', lang:'Hindi', d:'Viraj is the official AI representative of Finideas Pvt. Ltd. He answers customer queries and forwards callers to a relationship manager to schedule meetings and calls.', scenario:'Viraj asks if the customer attended the webinar, gathers their investment plan, then schedules a meeting or transfers the call to senior management.', demo:'demos/viraj-finideas.mp4', demoType:'video', demoLabel:'Viraj — Finideas live call', color:'#00C2FF' },
+  { c:'voice', k:'Finideas', industry:'Finance', t:'Investor support — Viraj', agentName:'VIRAJ', lang:'Hindi', d:'Viraj is the official AI representative of Finideas Pvt. Ltd. He answers customer queries and forwards callers to a relationship manager to schedule meetings and calls.', scenario:'Viraj asks if the customer attended the webinar, gathers their investment plan, then schedules a meeting or transfers the call to senior management.', demo:'demos/viraj-finideas.mp4', demoType:'audio', demoLabel:'Viraj — Finideas live call', color:'#00C2FF' },
   { c:'voice', k:'Hubtown', industry:'Real Estate', t:'Real estate project discovery — Aditi', agentName:'ADITI', lang:'English & Hindi', d:'Aditi helps customers explore Hubtown\'s real estate projects by understanding their requirements and guiding them toward suitable properties. She shares project information, answers common questions and supports buyers through their property search.', scenario:'Aditi greets customers, understands requirements, collects lead information, shares project details, and helps customers identify a suitable property.', demo:'demos/hubtown-agent.m4a', demoType:'audio', demoLabel:'Aditi — Hubtown real estate call', color:'#A259FF' },
   { c:'voice', k:'Force Motors', industry:'Automotive', t:'Traveller N sales and lead qualification — Aisha', agentName:'AISHA', lang:'English & Hindi', d:'Aisha engages customers interested in the Force Motors Traveller N. She introduces the vehicle, explains its features and benefits, answers product questions, understands requirements and qualifies leads by buying intent.', scenario:'Handling outbound customer calls, product pitching, lead qualification, FAQ handling, and capturing customer intent for follow-up.', demo:'demos/aisha-force-motors.wav', demoType:'audio', demoLabel:'Aisha — Hindi and English on one call', color:'#F9A825' },
   { c:'voice', k:'Force Motors', industry:'Automotive', t:'Aisha switching languages mid-call', showcaseAgent:true, lang:'Multilingual', d:'We build multilingual agents today. This demo for Force Motors shows Aisha changing language as the caller does, while keeping the conversation on track.', points:['The caller switches language in the middle of the call.','Aisha answers in that language on her very next turn.','Nothing restarts. The product details and lead questions carry on from where they were.'], demo:'demos/force-motors-language.wav', demoType:'audio', demoLabel:'Language switching live demo', color:'#F9A825' },
