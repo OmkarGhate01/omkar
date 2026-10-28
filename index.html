@@ -360,6 +360,24 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .wcard .wdemo{ width:100%; height:36px; margin:.4rem 0 0; border-radius:6px; accent-color:var(--rec); }
 .wcard video.wdemo{ height:160px; object-fit:cover; border-radius:8px; }
 
+/* ── agent cards ── */
+.agent-card{ position:relative; padding:1.2rem; background:var(--surf); border:1px solid color-mix(in srgb,var(--ac,#5B5FEF) 20%,transparent); }
+.agent-badge{ position:absolute; top:1rem; right:1rem; font-size:.7rem; padding:.2rem .55rem; border-radius:20px; font-weight:600; letter-spacing:.04em; }
+.agent-head{ display:flex; align-items:center; gap:.75rem; margin-bottom:.5rem; }
+.agent-avatar{ width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.4rem; font-weight:800; flex-shrink:0; }
+.agent-name{ font-size:1.1rem; font-weight:800; letter-spacing:.06em; margin:0 0 .1rem; }
+.agent-co{ font-size:.72rem; opacity:.6; margin:0; }
+.agent-lang{ font-size:.72rem; opacity:.5; margin:.3rem 0 .5rem; }
+.agent-desc{ font-size:.82rem; line-height:1.55; opacity:.75; margin:0 0 .6rem; }
+.agent-scenario{ font-size:.78rem; line-height:1.5; opacity:.7; margin:0 0 .8rem; }
+.agent-scenario b{ color:var(--ac,#5B5FEF); font-weight:700; font-size:.7rem; letter-spacing:.05em; }
+.agent-audio-wrap{ display:flex; align-items:center; gap:.6rem; padding:.6rem 0 .3rem; }
+.agent-play{ width:38px; height:38px; border-radius:50%; border:none; background:var(--ac,#5B5FEF); color:#fff; font-size:.85rem; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:opacity .15s; }
+.agent-play:hover{ opacity:.85; }
+.agent-wave{ display:flex; align-items:center; gap:3px; flex:1; height:36px; }
+.agent-wave span{ display:block; width:5px; border-radius:3px; background:color-mix(in srgb,var(--ac,#5B5FEF) 55%,transparent); transition:height .3s; flex-shrink:0; }
+.agent-listen{ font-size:.6rem; opacity:.45; letter-spacing:.08em; white-space:nowrap; }
+
 /* ═════════ CH.05 — CALL LOG ═════════ */
 .log{ padding:8rem 0 8rem; }
 .row{ display:grid; grid-template-columns:1fr; gap:.35rem; padding:1.4rem 1rem; margin:0 -1rem;
@@ -806,12 +824,12 @@ const SKILLS = [
 const RADAR_SHORT = ['Voice','Prompting','Automation','Clients','Process','Creative','Leadership','Data'];
 
 const PROJECTS = [
-  { c:'voice',      k:'Force Motors',      t:'Multilingual sales agent — Aisha',    d:'Aisha handles inbound sales calls with seamless Hindi-English code-switching. Built for a mobility brand where the caller base spans both languages mid-conversation.', demo:'demos/aisha-force-motors.wav', demoType:'audio', demoLabel:'Aisha — Hindi-English switching' },
-  { c:'voice',      k:'Force Motors',      t:'Language-adaptive agent demo',        d:'A second Force Motors agent demonstrating real-time language detection and switching across a full inbound call flow.', demo:'demos/force-motors-language.wav', demoType:'audio', demoLabel:'Language switching live demo' },
+  { c:'voice', k:'Force Motors', industry:'Automotive', t:'Multilingual sales agent — Aisha', agentName:'AISHA', lang:'English & Hindi', d:'Meet an AI-powered voice agent designed to engage customers interested in the Force Motors Traveller N. Introduces the vehicle, explains features, answers questions, and qualifies leads.', scenario:'Handling outbound customer calls, product pitching, lead qualification, FAQ handling, and capturing customer intent for follow-up.', demo:'demos/aisha-force-motors.wav', demoType:'audio', demoLabel:'Aisha — Hindi-English switching', color:'#5B5FEF' },
+  { c:'voice', k:'Force Motors', industry:'Automotive', t:'Language-adaptive agent demo', agentName:'AISHA', lang:'English & Hindi', d:'A second Force Motors agent demonstrating real-time language detection and switching across a full inbound call flow.', scenario:'Language-adaptive inbound call: detects caller language mid-conversation and switches seamlessly between Hindi and English.', demo:'demos/force-motors-language.wav', demoType:'audio', demoLabel:'Language switching live demo', color:'#5B5FEF' },
   { c:'voice',      k:'TVS Motors',        t:'Three-wheeler sales & service agent', d:'Inbound sales, service booking and support calls for the three-wheeler line, with a script and voice tuned to the sector.' },
   { c:'voice',      k:'Mahindra',          t:'Dealer enquiry & lead qualification', d:'Captures intent from inbound dealer enquiries and routes only the warm ones to the human team.' },
-  { c:'voice',      k:'Finideas',          t:'Investor support — Viraj agent',      d:'Viraj handles routine investor queries, FAQs and callback scheduling with the advisory desk. Calm, professional, financial-sector calibrated.', demo:'demos/finideas-viraj.mp4', demoType:'video', demoLabel:'Viraj — live investor call' },
-  { c:'voice',      k:'Hubtown',           t:'Site-visit booking agent',            d:'Books site visits, answers project questions, and hands warm buyers straight to sales.', demo:'demos/hubtown-agent.m4a', demoType:'audio', demoLabel:'Hubtown agent call' },
+  { c:'voice', k:'Finideas', industry:'Finance', t:'Investor support — Viraj agent', agentName:'VIRAJ', lang:'Hindi', d:'Viraj is an official AI representative of Finideas Pvt. Ltd. He answers investment queries and forwards qualified leads to the relationship manager for meeting scheduling.', scenario:'Viraj asks if the customer attended the webinar, gathers their investment plan, then schedules a meeting or transfers the call to senior management.', demo:'demos/finideas-viraj.mp4', demoType:'video', demoLabel:'Viraj — live investor call', color:'#E8744A' },
+  { c:'voice', k:'Hubtown', industry:'Real Estate', t:'Site-visit booking agent', agentName:'ADITI', lang:'English & Hindi', d:'Aditi helps customers explore Hubtown\'s real estate projects by understanding requirements and guiding them toward suitable properties, sharing project details along the way.', scenario:'Aditi greets customers, understands requirements, collects lead information, shares project details, and helps customers identify a suitable property.', demo:'demos/hubtown-agent.m4a', demoType:'audio', demoLabel:'Hubtown agent call', color:'#2EAF7D' },
   { c:'voice',      k:'Pets of Paradise',  t:'Appointment & enquiry agent',         d:'A friendly, low-pressure booking flow for a consumer audience that calls at odd hours.' },
   { c:'voice',      k:'Multi-sector',      t:'Agent library — 14 personas',         d:'A reusable set of scripts, voices and fallback patterns so a new sector can go live in days, not weeks.' },
   { c:'automation', k:'JAM Outsourcing',   t:'Lead routing on n8n',                 d:'Form and call data normalised, scored and pushed into the CRM without anyone touching a sheet.' },
@@ -884,15 +902,33 @@ if (!R.children.length) {
 const wgrid = $('#wgrid'), wfil = $('#workFilters');
 if (!wfil.children.length) wfil.innerHTML = WORK_CATS.map(([v,l],i) =>
   `<button data-f="${v}" aria-pressed="${i===0}" data-magnet>${esc(l)}</button>`).join('');
-if (!wgrid.children.length) wgrid.innerHTML = PROJECTS.map((p,i) => `
-  <article class="wcard rv skx" style="--d:${(i%3)*70}ms" data-c="${p.c}">
+if (!wgrid.children.length) wgrid.innerHTML = PROJECTS.map((p,i) => {
+  if (p.agentName && p.demo) {
+    const col = p.color || '#5B5FEF';
+    const mediaEl = p.demoType === 'video'
+      ? `<video class="wdemo" controls preload="none" src="${esc(p.demo)}" aria-label="${esc(p.demoLabel||'Agent demo')}"></video>`
+      : `<div class="agent-audio-wrap"><button class="agent-play" data-src="${esc(p.demo)}" aria-label="Play ${esc(p.agentName)} recording" style="--ac:${col}">▶</button><div class="agent-wave" style="--ac:${col}">${Array.from({length:22},()=>`<span style="height:${8+Math.random()*22}px"></span>`).join('')}</div><span class="agent-listen mono">LISTEN TO RECORDING</span></div>`;
+    return `<article class="wcard agent-card rv skx" style="--d:${(i%3)*70}ms;--ac:${col}" data-c="${p.c}">
+      <div class="agent-badge mono" style="background:${col}22;color:${col}">Recording</div>
+      <div class="agent-head">
+        <div class="agent-avatar" style="background:${col}22;color:${col}">${esc(p.agentName[0])}</div>
+        <div><h4 class="agent-name">${esc(p.agentName)}</h4><p class="agent-co mono">${esc(p.k)} — ${esc(p.industry||'')}</p></div>
+      </div>
+      <p class="agent-lang mono">Language: ${esc(p.lang||'')}</p>
+      <p class="agent-desc">${esc(p.d)}</p>
+      ${p.scenario ? `<p class="agent-scenario"><b>CURRENT SCENARIO:</b> ${esc(p.scenario)}</p>` : ''}
+      ${mediaEl}
+    </article>`;
+  }
+  return `<article class="wcard rv skx" style="--d:${(i%3)*70}ms" data-c="${p.c}">
     <div class="k mono"><span>${esc(p.k)}</span><span>${String(i+1).padStart(2,'0')}</span></div>
     <h4>${esc(p.t)}</h4><p>${esc(p.d)}</p>
     ${p.demo ? (p.demoType==='video'
       ? `<video class="wdemo" controls preload="none" src="${esc(p.demo)}" aria-label="${esc(p.demoLabel||'Agent demo')}"></video>`
       : `<audio class="wdemo" controls preload="none" src="${esc(p.demo)}" aria-label="${esc(p.demoLabel||'Agent demo')}"></audio>`) : ''}
     <div class="tag mono"><span>${esc((WORK_CATS.find(c=>c[0]===p.c)||[,''])[1])}</span>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Open project">↗</a>` : '<span>↗</span>'}</div>
-  </article>`).join('');
+  </article>`;
+}).join('');
 
 /* credentials — filterable grid */
 const cgrid = $('#cgrid'), cfil = $('#certFilters');
@@ -945,6 +981,27 @@ function wireFilter(bar, grid, sel){
 }
 wireFilter(wfil, wgrid, '.wcard');
 wireFilter(cfil, cgrid, '.cc');
+
+/* agent audio play buttons */
+let currentAudio = null;
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.agent-play');
+  if (!btn) return;
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    document.querySelectorAll('.agent-play').forEach(b => b.textContent = '▶');
+    if (currentAudio._btn === btn) { currentAudio = null; return; }
+  }
+  const src = btn.dataset.src;
+  if (!currentAudio || currentAudio._src !== src) {
+    currentAudio = new Audio(src);
+    currentAudio._src = src;
+    currentAudio._btn = btn;
+    currentAudio.onended = () => { btn.textContent = '▶'; };
+  }
+  currentAudio.play();
+  btn.textContent = '⏸';
+});
 
 /* ══════════════════════════════════════════════════════════════
    3 · IMAGE PIPELINE — lazy probe, graceful placeholder
