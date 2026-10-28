@@ -6,6 +6,9 @@ services:
     buildCommand: ""
     routes:
       - type: rewrite
+        source: /google9a637d822aa37f9c.html
+        destination: /google9a637d822aa37f9c.html
+      - type: rewrite
         source: /sitemap.xml
         destination: /sitemap.xml
       - type: rewrite
