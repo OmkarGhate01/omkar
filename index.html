@@ -721,7 +721,7 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
         <p class="vc-note">The recording the clone was made from.</p>
         <div class="vc-audio">
           <button class="vc-play" id="vcPlayReal" style="background:#00C2FF" aria-label="Play Nitin real voice">▶</button>
-          <div class="vc-wave" id="vcWaveReal">${Array.from({length:26},()=>`<span style="height:${6+Math.random()*22}px;background:color-mix(in srgb,#00C2FF 50%,transparent)"></span>`).join('')}</div>
+          <div class="vc-wave" id="vcWaveReal"><span style="height:14px;background:rgba(0,194,255,.45)"></span><span style="height:22px;background:rgba(0,194,255,.45)"></span><span style="height:10px;background:rgba(0,194,255,.45)"></span><span style="height:28px;background:rgba(0,194,255,.45)"></span><span style="height:18px;background:rgba(0,194,255,.45)"></span><span style="height:8px;background:rgba(0,194,255,.45)"></span><span style="height:26px;background:rgba(0,194,255,.45)"></span><span style="height:16px;background:rgba(0,194,255,.45)"></span><span style="height:22px;background:rgba(0,194,255,.45)"></span><span style="height:12px;background:rgba(0,194,255,.45)"></span><span style="height:20px;background:rgba(0,194,255,.45)"></span><span style="height:28px;background:rgba(0,194,255,.45)"></span><span style="height:10px;background:rgba(0,194,255,.45)"></span><span style="height:24px;background:rgba(0,194,255,.45)"></span><span style="height:16px;background:rgba(0,194,255,.45)"></span><span style="height:8px;background:rgba(0,194,255,.45)"></span><span style="height:22px;background:rgba(0,194,255,.45)"></span><span style="height:18px;background:rgba(0,194,255,.45)"></span><span style="height:26px;background:rgba(0,194,255,.45)"></span><span style="height:12px;background:rgba(0,194,255,.45)"></span><span style="height:20px;background:rgba(0,194,255,.45)"></span><span style="height:14px;background:rgba(0,194,255,.45)"></span><span style="height:28px;background:rgba(0,194,255,.45)"></span><span style="height:10px;background:rgba(0,194,255,.45)"></span><span style="height:22px;background:rgba(0,194,255,.45)"></span><span style="height:16px;background:rgba(0,194,255,.45)"></span></div>
           <audio id="vcAudioReal" src="demos/nitin-real-voice.mp4" preload="none"></audio>
         </div>
       </div>
@@ -902,7 +902,7 @@ const PROJECTS = [
   { c:'voice', k:'Hubtown', industry:'Real Estate', t:'Real estate project discovery — Aditi', agentName:'ADITI', lang:'English & Hindi', d:'Aditi helps customers explore Hubtown\'s real estate projects by understanding their requirements and guiding them toward suitable properties. She shares project information, answers common questions and supports buyers through their property search.', scenario:'Aditi greets customers, understands requirements, collects lead information, shares project details, and helps customers identify a suitable property.', demo:'demos/hubtown-agent.m4a', demoType:'audio', demoLabel:'Aditi — Hubtown real estate call', color:'#A259FF' },
   { c:'voice', k:'Force Motors', industry:'Automotive', t:'Traveller N sales and lead qualification — Aisha', agentName:'AISHA', lang:'English & Hindi', d:'Aisha engages customers interested in the Force Motors Traveller N. She introduces the vehicle, explains its features and benefits, answers product questions, understands requirements and qualifies leads by buying intent.', scenario:'Handling outbound customer calls, product pitching, lead qualification, FAQ handling, and capturing customer intent for follow-up.', demo:'demos/aisha-force-motors.wav', demoType:'audio', demoLabel:'Aisha — Hindi and English on one call', color:'#F9A825' },
   { c:'voice', k:'Force Motors', industry:'Automotive', t:'Aisha switching languages mid-call', showcaseAgent:true, lang:'Multilingual', d:'We build multilingual agents today. This demo for Force Motors shows Aisha changing language as the caller does, while keeping the conversation on track.', points:['The caller switches language in the middle of the call.','Aisha answers in that language on her very next turn.','Nothing restarts. The product details and lead questions carry on from where they were.'], demo:'demos/force-motors-language.wav', demoType:'audio', demoLabel:'Language switching live demo', color:'#F9A825' },
-  { c:'voice', k:'TVS Motors', industry:'Automotive', t:'AI Customer Relationship Executive — Tarun', agentName:'TARUN', lang:'Multilingual', d:'Tarun is an AI-powered customer relationship executive designed to assist customers throughout their TVS ownership journey. He helps with product inquiries, showroom appointments, finance guidance, service bookings, dealership assistance, and purchase support.', scenario:'Managing vehicle purchase inquiries, test ride bookings, showroom visits, service assistance, and dealer coordination.', demo:'demos/tarun-tvs-motors.mp4', demoType:'video', demoLabel:'Tarun — TVS Motors multilingual demo', color:'#D63031' },
+  { c:'voice', k:'TVS Motors', industry:'Automotive', t:'AI Customer Relationship Executive — Tarun', agentName:'TARUN', lang:'Multilingual', d:'Tarun is an AI-powered customer relationship executive designed to assist customers throughout their TVS ownership journey. He helps with product inquiries, showroom appointments, finance guidance, service bookings, dealership assistance, and purchase support.', scenario:'Managing vehicle purchase inquiries, test ride bookings, showroom visits, service assistance, and dealer coordination.', color:'#D63031' },
   { c:'voice',      k:'Mahindra',          t:'Dealer enquiry & lead qualification', d:'Captures intent from inbound dealer enquiries and routes only the warm ones to the human team.' },
   { c:'voice',      k:'Pets of Paradise',  t:'Appointment & enquiry agent',         d:'A friendly, low-pressure booking flow for a consumer audience that calls at odd hours.' },
   { c:'voice',      k:'Multi-sector',      t:'Agent library — 14 personas',         d:'A reusable set of scripts, voices and fallback patterns so a new sector can go live in days, not weeks.' },
@@ -1030,7 +1030,7 @@ if (agentsGrid && !agentsGrid.children.length) {
 const NON_AGENT_CATS = [['all','All'],['automation','Automation'],['ops','Operations'],['creative','Creative']];
 if (!wfil.children.length) wfil.innerHTML = NON_AGENT_CATS.map(([v,l],i) =>
   `<button data-f="${v}" aria-pressed="${i===0}" data-magnet>${esc(l)}</button>`).join('');
-const nonAgentProjects = PROJECTS.filter(p => !p.agentName);
+const nonAgentProjects = PROJECTS.filter(p => !p.agentName && !p.showcaseAgent);
 if (!wgrid.children.length) wgrid.innerHTML = nonAgentProjects.map((p,i) => {
   return `<article class="wcard rv skx" style="--d:${(i%3)*70}ms" data-c="${p.c}">
     <div class="k mono"><span>${esc(p.k)}</span><span>${String(i+1).padStart(2,'0')}</span></div>
@@ -1094,8 +1094,18 @@ function wireFilter(bar, grid, sel){
 wireFilter(wfil, wgrid, '.wcard');
 wireFilter(cfil, cgrid, '.cc');
 
-/* agent audio play buttons */
+/* agent audio play buttons — pre-cache audio objects to eliminate click delay */
 let currentAudio = null;
+const _audioCache = {};
+document.querySelectorAll('.agent-play[data-src]').forEach(btn => {
+  const src = btn.dataset.src;
+  if (!_audioCache[src]) {
+    const a = new Audio(src);
+    a.preload = 'auto';
+    a._src = src;
+    _audioCache[src] = a;
+  }
+});
 document.addEventListener('click', e => {
   const btn = e.target.closest('.agent-play');
   if (!btn) return;
@@ -1105,12 +1115,12 @@ document.addEventListener('click', e => {
     if (currentAudio._btn === btn) { currentAudio = null; return; }
   }
   const src = btn.dataset.src;
-  if (!currentAudio || currentAudio._src !== src) {
-    currentAudio = new Audio(src);
-    currentAudio._src = src;
-    currentAudio._btn = btn;
-    currentAudio.onended = () => { btn.textContent = '▶'; };
+  if (!_audioCache[src]) {
+    const a = new Audio(src); a.preload = 'auto'; a._src = src; _audioCache[src] = a;
   }
+  currentAudio = _audioCache[src];
+  currentAudio._btn = btn;
+  currentAudio.onended = () => { btn.textContent = '▶'; };
   currentAudio.play();
   btn.textContent = '⏸';
 });
