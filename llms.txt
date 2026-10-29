@@ -42,7 +42,7 @@ Total: 16+ live agents across India.
 
 ## Books by Omkar Vijay Ghate
 
-1. **Your First AI Agent** — A practical guide for small business owners to deploy their first conversational AI agent without writing code. Available on Amazon: https://amzn.in/d/03zRwIwu
+1. **The Human Pattern** — A practical guide for small business owners to deploy their first conversational AI agent without writing code. Available on Amazon: https://amzn.in/d/03zRwIwu
 2. **The 36 Laws of Quiet Power** — A modern framework of influence, restraint and strategy. Available on Amazon: https://amzn.in/d/02RqwljW
 
 ## OmiLabs
