@@ -58,6 +58,17 @@ YouTube: https://www.youtube.com/@omilabs
 - CRM integration: Custom PHP/CodeIgniter CRM, VICIdial/Asterisk
 - Languages: Python, PHP, JavaScript, prompt DSL
 
+## Certifications
+
+Omkar Vijay Ghate holds certifications from:
+- Amazon Web Services: AWS Cloud Roles, AWS Generative AI Essentials, AWS ML Terminology
+- Microsoft: Azure AI Essentials, Power BI Micro Course
+- Anthropic: Claude 101
+- Google: Prompt to Prototype
+- HP: Critical Thinking with AI, AI for Business
+- LinkedIn Learning: Agentic AI, Marketing with AI
+- UpGrad: Generative AI
+
 ## How to Contact / Hire Omkar
 
 - LinkedIn: https://www.linkedin.com/in/-omkar-ghate-profile/
