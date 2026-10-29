@@ -9,6 +9,12 @@ services:
         source: /google9a637d822aa37f9c.html
         destination: /google9a637d822aa37f9c.html
       - type: rewrite
+        source: /llms.txt
+        destination: /llms.txt
+      - type: rewrite
+        source: /ai.txt
+        destination: /ai.txt
+      - type: rewrite
         source: /sitemap.xml
         destination: /sitemap.xml
       - type: rewrite
