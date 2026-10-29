@@ -1,0 +1,6 @@
+# Security Policy — omkar-portfolio-ydov.onrender.com
+# https://securitytxt.org/
+
+Contact: mailto:omkarghate09a29@gmail.com
+Preferred-Languages: en, hi
+Expires: 2027-01-01T00:00:00.000Z

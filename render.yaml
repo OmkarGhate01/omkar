@@ -15,6 +15,12 @@ services:
         source: /ai.txt
         destination: /ai.txt
       - type: rewrite
+        source: /humans.txt
+        destination: /humans.txt
+      - type: rewrite
+        source: /.well-known/security.txt
+        destination: /.well-known/security.txt
+      - type: rewrite
         source: /sitemap.xml
         destination: /sitemap.xml
       - type: rewrite
@@ -82,6 +88,12 @@ services:
       - path: /*
         name: X-XSS-Protection
         value: 1; mode=block
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://cdn.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.clarity.ms; frame-src 'none'; object-src 'none'"
       # Cache headers
       - path: /assets/*
         name: Cache-Control

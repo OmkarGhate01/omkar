@@ -4,7 +4,6 @@
 User-agent: *
 Allow: /
 Disallow: /demos/
-Disallow: /certs/
 
 # Sitemap
 Sitemap: https://omkar-portfolio-ydov.onrender.com/sitemap.xml

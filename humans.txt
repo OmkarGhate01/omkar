@@ -1,0 +1,14 @@
+/* TEAM */
+Developer & Designer: Omkar Vijay Ghate
+Role: Agentic AI Architect, Voice Agent Builder, Prompt Engineer
+Location: Mumbai, Maharashtra, India
+Email: omkarghate09a29@gmail.com
+LinkedIn: https://www.linkedin.com/in/-omkar-ghate-profile/
+YouTube: https://www.youtube.com/@omilabs
+
+/* SITE */
+Last update: 2026-10-29
+Language: English
+Doctype: HTML5
+IDE: VS Code
+Hosting: Render
