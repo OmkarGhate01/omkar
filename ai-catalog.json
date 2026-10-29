@@ -1,0 +1,52 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Omkar Vijay Ghate — Agentic AI Architect",
+  "url": "https://omkar-portfolio-ydov.onrender.com/",
+  "description": "Portfolio of Omkar Vijay Ghate — AI voice agents, workflow automation, and agentic systems for Indian businesses. 16+ live agents across automotive, real estate, finance and retail.",
+  "author": {
+    "@type": "Person",
+    "name": "Omkar Vijay Ghate",
+    "alternateName": ["Omkar Ghate", "Omi", "OmiLabs"],
+    "jobTitle": "Agentic AI Architect",
+    "email": "omkarghate09a29@gmail.com",
+    "telephone": "+91-98198-20742",
+    "url": "https://omkar-portfolio-ydov.onrender.com/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mumbai",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/-omkar-ghate-profile/",
+      "https://github.com/ogjchchv",
+      "https://www.youtube.com/@omilabs",
+      "https://dev.to/ogjchchv"
+    ],
+    "knowsAbout": [
+      "Agentic AI",
+      "Voice Agent Development",
+      "Conversational AI",
+      "Prompt Engineering",
+      "AI Workflow Automation",
+      "n8n",
+      "Bolna AI",
+      "ElevenLabs",
+      "Vapi AI",
+      "Retell AI"
+    ]
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Portfolio Sections",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "About", "url": "https://omkar-portfolio-ydov.onrender.com/#c1" },
+      { "@type": "ListItem", "position": 2, "name": "Skills", "url": "https://omkar-portfolio-ydov.onrender.com/#c2" },
+      { "@type": "ListItem", "position": 3, "name": "Voice Agents & Work", "url": "https://omkar-portfolio-ydov.onrender.com/#c4" },
+      { "@type": "ListItem", "position": 4, "name": "Work History", "url": "https://omkar-portfolio-ydov.onrender.com/#c5" },
+      { "@type": "ListItem", "position": 5, "name": "Certifications", "url": "https://omkar-portfolio-ydov.onrender.com/#c6" },
+      { "@type": "ListItem", "position": 6, "name": "Contact", "url": "https://omkar-portfolio-ydov.onrender.com/#c9" }
+    ]
+  }
+}

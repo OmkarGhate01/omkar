@@ -86,14 +86,14 @@
   }
 </script>
 
-<!-- ░░ MICROSOFT CLARITY ░░ replace CLARITY_ID with your Project ID from clarity.microsoft.com (free) -->
-<script>
+<!-- ░░ MICROSOFT CLARITY ░░ add your Project ID from clarity.microsoft.com when ready -->
+<!-- <script>
   (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window,document,"clarity","script","CLARITY_ID");
-</script>
+  })(window,document,"clarity","script","YOUR_CLARITY_ID_HERE");
+</script> -->
 
 <script type="application/ld+json">
 [
@@ -402,8 +402,8 @@
 <!-- ░░ FONT PRECONNECT + PRELOAD ░░ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Inter+Tight:wght@300;400&display=swap" />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@200;300;400;500&display=swap"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -680,7 +680,7 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .wcard:hover{ background:var(--coal); }
 .wcard.hide{ opacity:0; transform:scale(.96); pointer-events:none; position:absolute; visibility:hidden; }
 .wcard .k{ display:flex; justify-content:space-between; gap:1rem; opacity:.45; }
-.wcard h4{ margin:.6rem 0 0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:1.5rem;
+.wcard h3{ margin:.6rem 0 0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:1.5rem;
   letter-spacing:-.032em; line-height:1.1; }
 .wcard p{ margin:0; font-size:.9rem; line-height:1.55; opacity:.6; }
 .wcard .tag{ margin-top:auto; padding-top:1rem; display:flex; align-items:center; gap:.5rem; color:var(--rec); opacity:0;
@@ -707,7 +707,7 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .agent-info{ display:flex; flex-direction:column; gap:.55rem; }
 .agent-head{ display:flex; align-items:center; gap:.9rem; }
 .agent-avatar{ width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800; flex-shrink:0; }
-.agent-name{ font-size:1.25rem; font-weight:800; letter-spacing:.06em; margin:0 0 .1rem; }
+.agent-name{ font-size:1.25rem; font-weight:800; letter-spacing:.06em; margin:0 0 .1rem; display:block; }
 .agent-co{ font-size:.7rem; opacity:.55; margin:0; letter-spacing:.08em; }
 .agent-lang{ font-size:.7rem; opacity:.45; margin:0; letter-spacing:.1em; }
 .agent-desc{ font-size:.9rem; line-height:1.65; opacity:.72; margin:0; max-width:52ch; }
@@ -781,10 +781,10 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .row:last-of-type{ border-bottom:1px solid rgba(13,13,15,.15); }
 @media(min-width:900px){ .row{ grid-template-columns:5rem 15rem 1fr; gap:2rem; align-items:baseline; padding:1.65rem 1rem; } }
 .row:hover{ background:var(--ink); color:var(--paper); padding-left:1.7rem; }
-.row .t2{ opacity:.42; }
+.row .t2{ opacity:.55; }
 .row:hover .t2{ color:var(--rec); opacity:1; }
-.row h4{ margin:0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:1.3rem; letter-spacing:-.03em; line-height:1.15; }
-.row h4 span{ display:block; margin-top:.3rem; }
+.row h3{ margin:0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:1.3rem; letter-spacing:-.03em; line-height:1.15; }
+.row h3 span{ display:block; margin-top:.3rem; }
 .row p{ margin:0; font-size:.93rem; line-height:1.55; opacity:.68; max-width:62ch; }
 
 /* ═════════ CH.06 — CREDENTIALS ═════════ */
@@ -808,8 +808,8 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .cc:hover .cshot img.loaded{ transform:scale(1.05); opacity:1; }
 .cbody{ padding:1.05rem 1.15rem 1.2rem; display:flex; flex-direction:column; gap:.45rem; flex:1; }
 .cbody .iss{ color:var(--rec); }
-.cbody h5{ margin:0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:1.1rem; letter-spacing:-.028em; line-height:1.15; }
-.cbody .id{ font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.06em; opacity:.42; word-break:break-all; }
+.cbody h3{ margin:0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:1.1rem; letter-spacing:-.028em; line-height:1.15; }
+.cbody .id{ font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.06em; opacity:.55; word-break:break-all; }
 .cacts{ margin-top:auto; padding-top:.9rem; display:flex; gap:.4rem; }
 .cacts a,.cacts button{ flex:1; text-align:center; border:1px solid rgba(237,235,230,.22); border-radius:999px; padding:.45rem .5rem;
   font-family:'IBM Plex Mono',monospace; font-size:.56rem; letter-spacing:.13em; text-transform:uppercase;
@@ -822,7 +822,7 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .lbp{ width:min(960px,96vw); max-height:92svh; overflow:auto; }
 .lbp img{ width:100%; border-radius:6px; }
 .lbhead{ display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:1rem; }
-.lbhead h4{ margin:.3rem 0 0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600;
+.lbhead h3{ margin:.3rem 0 0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600;
   font-size:clamp(1.25rem,3vw,2rem); letter-spacing:-.03em; line-height:1.1; }
 .lbnone{ aspect-ratio:4/3; display:grid; place-items:center; text-align:center; padding:2rem; border:1px dashed rgba(237,235,230,.25); border-radius:6px; }
 .lbnone b{ font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.8rem,5vw,3.2rem); letter-spacing:-.04em; opacity:.3; }
@@ -868,7 +868,7 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .end-blog-card:last-child{ border-bottom:1px solid rgba(237,235,230,.1); }
 .end-blog-card:hover{ opacity:.75; }
 .end-blog-card .ebm{ font-size:.7rem; opacity:.4; letter-spacing:.06em; text-transform:uppercase; margin:0 0 .4rem; }
-.end-blog-card h4{ font-size:1rem; font-weight:700; letter-spacing:-.02em; line-height:1.3; margin:0 0 .3rem; }
+.end-blog-card h4,.end-blog-card h3{ font-size:1rem; font-weight:700; letter-spacing:-.02em; line-height:1.3; margin:0 0 .3rem; }
 .end-blog-card p{ font-size:.82rem; opacity:.55; margin:0; line-height:1.5; }
 .end-blog-more{ display:inline-block; margin-top:1.4rem; font-size:.8rem; color:var(--rec); font-weight:600; text-decoration:none; }
 .end-blog-more:hover{ text-decoration:underline; }
@@ -1120,18 +1120,19 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 <!-- ═══ 03:32 CALL LOG ═══ -->
 <section class="log pad light" id="c5" data-tone="light" data-chap="Call log">
   <div class="chapmark mono rv"><span>CH. 05 — 03:32</span><span class="ln"></span><span>Call log — where the hours went</span></div>
+  <h2 class="sr">Work History</h2>
 
-  <div class="row rv skx"><span class="t2 mono">NOW</span><h4>JAM Outsourcing<span class="mono">Multi-process operations · AI</span></h4><p>Diverse exposure across processes — client management, team leadership and results-oriented reporting. The floor where the conversational AI work began.</p></div>
-  <div class="row rv skx" style="--d:60ms"><span class="t2 mono">PREV</span><h4>Beyond Enough<span class="mono">Bookings &amp; guest experience</span></h4><p>Managed reservations for water parks, amusement parks and Timezone tickets — seamless bookings, zero-friction service at volume.</p></div>
-  <div class="row rv skx" style="--d:120ms"><span class="t2 mono">PREV</span><h4>Inland World Logistics<span class="mono">Team lead — sea &amp; road</span></h4><p>Led a team through inbound calls, vehicle coordination, EOD reports and client meetings across import-export operations.</p></div>
-  <div class="row rv skx" style="--d:180ms"><span class="t2 mono">PREV</span><h4>Sovereign Solutions<span class="mono">FMCG software demos</span></h4><p>Ran product demos, client coordination and reporting — supporting sales through direct, hands-on client engagement.</p></div>
-  <div class="row rv skx" style="--d:240ms"><span class="t2 mono">PREV</span><h4>Custage — Purify Conclave<span class="mono">CXO conference, solo</span></h4><p>Independently executed a high-value CXO conference: client engagement, guest onboarding, speaker coordination and full event operations.</p></div>
-  <div class="row rv skx" style="--d:300ms"><span class="t2 mono">PREV</span><h4>Media Fusion<span class="mono">Telecaller executive</span></h4><p>International B2B exhibition pitching across calls, email and Kylas CRM — handling client queries and driving event participation.</p></div>
+  <div class="row rv skx"><span class="t2 mono">NOW</span><h3>JAM Outsourcing<span class="mono">Multi-process operations · AI</span></h3><p>Diverse exposure across processes — client management, team leadership and results-oriented reporting. The floor where the conversational AI work began.</p></div>
+  <div class="row rv skx" style="--d:60ms"><span class="t2 mono">PREV</span><h3>Beyond Enough<span class="mono">Bookings &amp; guest experience</span></h3><p>Managed reservations for water parks, amusement parks and Timezone tickets — seamless bookings, zero-friction service at volume.</p></div>
+  <div class="row rv skx" style="--d:120ms"><span class="t2 mono">PREV</span><h3>Inland World Logistics<span class="mono">Team lead — sea &amp; road</span></h3><p>Led a team through inbound calls, vehicle coordination, EOD reports and client meetings across import-export operations.</p></div>
+  <div class="row rv skx" style="--d:180ms"><span class="t2 mono">PREV</span><h3>Sovereign Solutions<span class="mono">FMCG software demos</span></h3><p>Ran product demos, client coordination and reporting — supporting sales through direct, hands-on client engagement.</p></div>
+  <div class="row rv skx" style="--d:240ms"><span class="t2 mono">PREV</span><h3>Custage — Purify Conclave<span class="mono">CXO conference, solo</span></h3><p>Independently executed a high-value CXO conference: client engagement, guest onboarding, speaker coordination and full event operations.</p></div>
+  <div class="row rv skx" style="--d:300ms"><span class="t2 mono">PREV</span><h3>Media Fusion<span class="mono">Telecaller executive</span></h3><p>International B2B exhibition pitching across calls, email and Kylas CRM — handling client queries and driving event participation.</p></div>
 </section>
 
 <!-- ═══ 04:10 CREDENTIALS ═══ -->
 <section class="creds" id="c6" data-tone="dark" data-chap="Credentials">
-  <div class="pad"><div class="chapmark mono rv"><span>CH. 06 — 04:10</span><span class="ln"></span><span>Credentials — Nov 2025 → May 2026</span></div></div>
+  <div class="pad"><h2 class="sr">Certifications</h2><div class="chapmark mono rv"><span>CH. 06 — 04:10</span><span class="ln"></span><span>Credentials — Nov 2025 → May 2026</span></div></div>
   <div class="marq"><div class="marq-track" id="marq"></div></div>
   <div class="pad">
     <div class="filters" id="certFilters" role="group" aria-label="Filter certifications"></div>
@@ -1222,7 +1223,7 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Certificate viewer">
   <div class="lbp">
     <div class="lbhead">
-      <div><p class="mono" id="lbIss" style="color:var(--rec)"></p><h4 id="lbTitle"></h4></div>
+      <div><p class="mono" id="lbIss" style="color:var(--rec)"></p><h3 id="lbTitle"></h3></div>
       <button class="mono" id="lbClose">CLOSE ✕</button>
     </div>
     <div id="lbBody"></div>
@@ -1400,7 +1401,7 @@ if (agentsGrid && !agentsGrid.children.length) {
       return `<article class="agent-card agent-showcase rv skx" style="--d:${i*60}ms;--ac:${col}">
         <div class="agent-info">
           <div class="showcase-tag mono" style="color:${col}">${esc(p.k)} demo</div>
-          <h4 class="showcase-title">${esc(p.t)}</h4>
+          <h3 class="showcase-title">${esc(p.t)}</h3>
           <p class="agent-desc" style="margin-bottom:1.4rem">${esc(p.d)}</p>
           ${(p.points||[]).map((pt,n) => `<div class="showcase-point"><span class="showcase-num mono" style="color:${col}">0${n+1}</span><p><b>${esc(pt.split(' ').slice(0,4).join(' '))}</b> ${esc(pt.split(' ').slice(4).join(' '))}</p></div>`).join('')}
         </div>
@@ -1416,7 +1417,7 @@ if (agentsGrid && !agentsGrid.children.length) {
         <div class="agent-head">
           <div class="agent-avatar" style="background:${col}22;color:${col}">${esc(p.agentName[0])}</div>
           <div>
-            <h4 class="agent-name">${esc(p.agentName)}</h4>
+            <h3 class="agent-name">${esc(p.agentName)}</h3>
             <p class="agent-co mono">${esc(p.k)} — ${esc(p.industry||'')}</p>
           </div>
         </div>
@@ -1437,7 +1438,7 @@ const nonAgentProjects = PROJECTS.filter(p => !p.agentName && !p.showcaseAgent);
 if (!wgrid.children.length) wgrid.innerHTML = nonAgentProjects.map((p,i) => {
   return `<article class="wcard rv skx" style="--d:${(i%3)*70}ms" data-c="${p.c}">
     <div class="k mono"><span>${esc(p.k)}</span><span>${String(i+1).padStart(2,'0')}</span></div>
-    <h4>${esc(p.t)}</h4><p>${esc(p.d)}</p>
+    <h3>${esc(p.t)}</h3><p>${esc(p.d)}</p>
     ${p.demo ? (p.demoType==='video'
       ? `<video class="wdemo" controls preload="none" src="${esc(p.demo)}" aria-label="${esc(p.demoLabel||'Agent demo')}"></video>`
       : `<audio class="wdemo" controls preload="none" src="${esc(p.demo)}" aria-label="${esc(p.demoLabel||'Agent demo')}"></audio>`) : ''}
@@ -1457,8 +1458,8 @@ if (!cgrid.children.length) cgrid.innerHTML = CERTS.map((c,n) => `
     </div>
     <div class="cbody">
       <p class="mono iss">${esc(c.i)}</p>
-      <h5>${esc(c.t)}</h5>
-      ${c.s ? `<p style="opacity:.42;font-size:.8rem;margin:-.1rem 0 0">${esc(c.s)}</p>` : ''}
+      <h3>${esc(c.t)}</h3>
+      ${c.s ? `<p style="opacity:.55;font-size:.8rem;margin:-.1rem 0 0">${esc(c.s)}</p>` : ''}
       <p class="mono" style="opacity:.4">${esc(c.d)}</p>
       ${c.id ? `<p class="id">ID ${esc(c.id)}</p>` : ''}
       <div class="cacts">
