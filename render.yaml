@@ -3,7 +3,6 @@ services:
     runtime: static
     name: omkar-portfolio
     staticPublishPath: .
-    buildCommand: ""
     routes:
       - type: rewrite
         source: /google9a637d822aa37f9c.html
@@ -27,38 +26,8 @@ services:
         source: /blog
         destination: /blog/index.html
       - type: rewrite
-        source: /blog/what-is-agentic-ai
-        destination: /blog/what-is-agentic-ai.html
-      - type: rewrite
-        source: /blog/voice-cloning-business-india
-        destination: /blog/voice-cloning-business-india.html
-      - type: rewrite
-        source: /blog/prompt-engineering-guide-2026
-        destination: /blog/prompt-engineering-guide-2026.html
-      - type: rewrite
-        source: /blog/ai-workflow-automation-n8n
-        destination: /blog/ai-workflow-automation-n8n.html
-      - type: rewrite
-        source: /blog/ai-customer-service-india
-        destination: /blog/ai-customer-service-india.html
-      - type: rewrite
-        source: /blog/ai-vs-human-customer-service
-        destination: /blog/ai-vs-human-customer-service.html
-      - type: rewrite
-        source: /blog/future-of-work-ai-agents
-        destination: /blog/future-of-work-ai-agents.html
-      - type: rewrite
-        source: /blog/how-to-build-ai-agent-no-code
-        destination: /blog/how-to-build-ai-agent-no-code.html
-      - type: rewrite
-        source: /blog/multilingual-voice-ai-india
-        destination: /blog/multilingual-voice-ai-india.html
-      - type: rewrite
-        source: /blog/ai-creativity-human-art
-        destination: /blog/ai-creativity-human-art.html
-      - type: rewrite
-        source: /blog/36-laws-quiet-power-review
-        destination: /blog/36-laws-quiet-power-review.html
+        source: /blog/:slug
+        destination: /blog/:slug.html
       - type: rewrite
         source: /*
         destination: /index.html
