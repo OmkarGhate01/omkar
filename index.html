@@ -420,6 +420,7 @@
   --bone:#C6C3BB;
   --grey:#78787260;
   --rec:#FF3B21;
+  --amber:#FFB347;
   --pad:1.35rem;
   --hud:60px;
   --e:cubic-bezier(.19,1,.22,1);
@@ -882,6 +883,40 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .pill:hover{ background:rgba(255,255,255,.06); }
 .endfoot{ margin-top:auto; padding-top:4.5rem; display:flex; flex-wrap:wrap; gap:.7rem 2rem; justify-content:space-between; opacity:.4; }
 
+/* ═════════ CX — VOICE AGENTS CAROUSEL ═════════ */
+.va-section{ padding:8rem 0 9rem; overflow:hidden; }
+.va-head{ padding:0 var(--pad) 3rem; }
+.va-stage{ position:relative; width:100%; height:520px; perspective:1200px; cursor:none; user-select:none; }
+.va-card{ position:absolute; width:280px; height:420px; border-radius:20px;
+  background:rgba(255,255,255,.05); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,179,71,.18); box-shadow:0 0 32px rgba(255,179,71,.08);
+  transition:box-shadow .4s; will-change:transform; top:50%; left:50%; margin:-210px 0 0 -140px; }
+.va-card.active{ box-shadow:0 0 60px rgba(255,179,71,.28); }
+.card-media{ position:relative; width:100%; height:74%; overflow:hidden; background:#111; border-radius:20px 20px 0 0; }
+.card-media video{ width:100%; height:100%; object-fit:cover; display:block; }
+.card-info{ padding:.8rem 1rem .6rem; }
+.card-name{ font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.3rem; letter-spacing:-.04em; color:var(--paper); }
+.card-meta{ font-family:'IBM Plex Mono',monospace; font-size:.55rem; letter-spacing:.16em; text-transform:uppercase; opacity:.5; margin-top:.2rem; color:var(--paper); }
+.card-wave-overlay{ position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+  display:flex; align-items:center; gap:2.5px; height:32px; opacity:0; transition:opacity .35s; pointer-events:none; }
+.card-wave-overlay.on{ opacity:1; }
+.wbar{ width:2.5px; border-radius:2px; background:var(--amber); transform-origin:center bottom; transform:scaleY(.15); }
+.card-wave-overlay.on .wbar{ animation:wb var(--dur,.7s) ease-in-out infinite alternate; animation-delay:var(--dl,0s); }
+@keyframes wb{ 0%{transform:scaleY(.15)} 100%{transform:scaleY(1)} }
+.va-play-btn{ position:absolute; bottom:1rem; right:1rem; width:36px; height:36px; border-radius:50%;
+  background:var(--amber); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:transform .3s,background .3s; z-index:10; }
+.va-play-btn svg{ width:14px; height:14px; fill:#000; }
+.va-play-btn:hover{ transform:scale(1.12); background:#FFA020; }
+.va-lock-badge{ position:fixed; top:22px; right:24px; background:var(--amber); color:#000; border-radius:999px;
+  padding:.35rem .9rem; font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.16em;
+  text-transform:uppercase; z-index:100; opacity:0; transition:opacity .3s; pointer-events:none; }
+.va-lock-badge.show{ opacity:1; }
+.audio-card-bg{ width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:3rem; letter-spacing:-.05em;
+  color:rgba(255,255,255,.18); border-radius:20px 20px 0 0; }
+.va-hint{ text-align:center; margin-top:1.5rem; font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.16em; opacity:.35; text-transform:uppercase; }
+
 /* ═════════ IMPORTER + TOAST ═════════ */
 #setupBtn{ position:fixed; right:var(--pad); top:3.4rem; z-index:75; background:var(--rec); color:#fff; border-radius:999px;
   padding:.6rem 1.05rem; font-family:'IBM Plex Mono',monospace; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase;
@@ -943,6 +978,7 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
     <li><a href="#c1"><span class="mono">00:38</span><span class="t">Origin</span></a></li>
     <li><a href="#c2"><span class="mono">01:24</span><span class="t">The craft</span></a></li>
     <li><a href="#c3"><span class="mono">02:11</span><span class="t">On record</span></a></li>
+    <li><a href="#cva"><span class="mono">02:35</span><span class="t">Voice agents</span></a></li>
     <li><a href="#c4"><span class="mono">02:49</span><span class="t">The work</span></a></li>
     <li><a href="#c5"><span class="mono">03:32</span><span class="t">Call log</span></a></li>
     <li><a href="#c6"><span class="mono">04:10</span><span class="t">Credentials</span></a></li>
@@ -1062,6 +1098,20 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
     </div>
   </div>
 </section>
+<!-- ═══ 02:35 VOICE AGENTS ═══ -->
+<section class="va-section" id="cva" data-tone="dark" data-chap="Voice agents">
+  <div class="va-head pad">
+    <div class="chapmark mono rv"><span>CH. 03B — 02:35</span><span class="ln"></span><span>Voice agents</span></div>
+    <h2 class="disp rv" style="font-size:clamp(2rem,6vw,4.5rem);margin:.6rem 0 .5rem;line-height:.9">Meet the agents.</h2>
+    <p class="rv" style="opacity:.55;max-width:50ch;font-size:.97rem;line-height:1.6;margin:0">
+      Fourteen live deployments. Drag or swipe to browse — click a card to hear the agent speak.
+    </p>
+  </div>
+  <div class="va-stage" id="vaStage" aria-label="Voice agent carousel"></div>
+  <p class="va-hint">← drag or swipe →</p>
+  <div class="va-lock-badge mono" id="vaLockBadge">● playing</div>
+</section>
+
 <!-- ═══ 02:49 THE WORK ═══ -->
 <section class="work pad" id="c4" data-tone="dark" data-chap="The work">
   <div class="chapmark mono rv"><span>CH. 04 — 02:49</span><span class="ln"></span><span>The work</span></div>
@@ -2002,6 +2052,161 @@ function finish(){
 requestAnimationFrame(raf);
 scene();
 setTimeout(syncSetup, 1200);
+})();
+
+/* ─────────── VOICE AGENTS CAROUSEL ─────────── */
+(function(){
+  const AGENTS = [
+    { name:'Tarun',  client:'TVS Motors',   industry:'Automotive',   lang:'Multilingual', color:'#FF3B21', vid:'assets/tarun-video.mp4',  img:'assets/tarun-poster.jpg', aud:null },
+    { name:'Aisha',  client:'Force Motors', industry:'Automotive',   lang:'Hindi + EN',   color:'#FF8C42', vid:'assets/aisha-video.mp4',  img:null,                      aud:null },
+    { name:'Viraj',  client:'Finideas',     industry:'Finance',      lang:'Hindi',        color:'#C97B2B', vid:'assets/viraj-video.mp4',  img:null,                      aud:null },
+    { name:'Aditi',  client:'Hubtown',      industry:'Real Estate',  lang:'English',      color:'#A78BFA', vid:null,                      img:null,                      aud:'assets/aditi-audio.m4a' },
+  ];
+
+  const stage = document.getElementById('vaStage');
+  const lockBadge = document.getElementById('vaLockBadge');
+  if(!stage) return;
+
+  const N = AGENTS.length;
+  const RADIUS = 380;
+  let angle = 0, vel = 0, locked = false;
+  let dragStart = null, dragAngle = 0;
+  let activeMedia = null;
+  let rafId;
+  let started = false;
+
+  /* build cards */
+  const cards = AGENTS.map((a,i) => {
+    const div = document.createElement('div');
+    div.className = 'va-card glass';
+    div.dataset.i = i;
+
+    const media = document.createElement('div');
+    media.className = 'card-media';
+
+    if(a.vid){
+      const v = document.createElement('video');
+      v.src = a.vid; v.muted = true; v.loop = true; v.playsInline = true;
+      if(a.img){ v.poster = a.img; }
+      media.appendChild(v);
+    } else {
+      const bg = document.createElement('div');
+      bg.className = 'audio-card-bg';
+      bg.style.background = `linear-gradient(135deg,${a.color}33,${a.color}11)`;
+      bg.textContent = a.name[0];
+      media.appendChild(bg);
+    }
+
+    /* waveform overlay */
+    const wave = document.createElement('div');
+    wave.className = 'card-wave-overlay';
+    for(let w=0;w<9;w++){
+      const bar = document.createElement('div');
+      bar.className = 'wbar';
+      bar.style.setProperty('--dur', (0.5+Math.random()*.5)+'s');
+      bar.style.setProperty('--dl',  (Math.random()*.35)+'s');
+      wave.appendChild(bar);
+    }
+    media.appendChild(wave);
+
+    /* play button */
+    const btn = document.createElement('button');
+    btn.className = 'va-play-btn';
+    btn.setAttribute('aria-label','Play '+a.name);
+    btn.innerHTML = '<svg viewBox="0 0 16 16"><polygon points="3,1 14,8 3,15"/></svg>';
+    btn.addEventListener('click', e => { e.stopPropagation(); togglePlay(i, div, a, wave); });
+    media.appendChild(btn);
+
+    const info = document.createElement('div');
+    info.className = 'card-info';
+    info.innerHTML = `<div class="card-name">${a.name}</div><div class="card-meta">${a.client} · ${a.industry} · ${a.lang}</div>`;
+
+    div.innerHTML = '';
+    div.appendChild(media);
+    div.appendChild(info);
+    stage.appendChild(div);
+    return { el:div, media, wave, a };
+  });
+
+  function togglePlay(i, cardEl, a, wave){
+    const vid = cardEl.querySelector('video');
+    const aud = a.aud ? new Audio(a.aud) : null;
+    const isPlaying = cardEl.classList.contains('playing');
+
+    /* stop all */
+    cards.forEach(c => {
+      const v = c.el.querySelector('video');
+      if(v){ v.muted = true; v.pause(); }
+      c.el.classList.remove('playing');
+      c.wave.classList.remove('on');
+    });
+    if(activeMedia){ try{ activeMedia.pause(); }catch(e){} activeMedia = null; }
+    locked = false;
+    lockBadge && lockBadge.classList.remove('show');
+
+    if(!isPlaying){
+      locked = true;
+      lockBadge && lockBadge.classList.add('show');
+      wave.classList.add('on');
+      cardEl.classList.add('playing');
+      if(vid){ vid.muted = false; vid.play().catch(()=>{ vid.muted=true; vid.play(); }); activeMedia = vid; }
+      else if(aud){ aud.play(); activeMedia = aud; aud.onended = ()=>{ locked=false; lockBadge.classList.remove('show'); wave.classList.remove('on'); cardEl.classList.remove('playing'); }; }
+    }
+  }
+
+  function position(){
+    const W = stage.offsetWidth;
+    cards.forEach((c,i) => {
+      const a2 = angle + (i/N)*Math.PI*2;
+      const x = Math.sin(a2)*RADIUS;
+      const z = Math.cos(a2)*RADIUS;
+      const scale = 0.72 + 0.28*((z+RADIUS)/(RADIUS*2));
+      const opacity = 0.45 + 0.55*((z+RADIUS)/(RADIUS*2));
+      c.el.style.transform = `translate3d(${x}px,0,${z}px) scale(${scale})`;
+      c.el.style.opacity = opacity;
+      c.el.style.zIndex = Math.round((z+RADIUS)*10);
+      c.el.classList.toggle('active', z > RADIUS*0.7);
+      /* muted preview for frontmost */
+      const vid = c.el.querySelector('video');
+      if(vid && !c.el.classList.contains('playing')){
+        if(z > RADIUS*0.7){ vid.play().catch(()=>{}); }
+        else { vid.pause(); }
+      }
+    });
+  }
+
+  function loop(){
+    if(!locked){ vel *= 0.93; angle += vel; }
+    position();
+    rafId = requestAnimationFrame(loop);
+  }
+
+  /* mouse drag */
+  stage.addEventListener('mousedown', e => { dragStart = e.clientX; dragAngle = angle; stage.style.cursor='grabbing'; });
+  window.addEventListener('mousemove', e => {
+    if(dragStart === null) return;
+    const dx = e.clientX - dragStart;
+    angle = dragAngle - dx/280;
+    vel = -(e.movementX)/280;
+  });
+  window.addEventListener('mouseup', () => { dragStart = null; stage.style.cursor='none'; });
+
+  /* touch */
+  let tx0 = 0, ta0 = 0;
+  stage.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; ta0 = angle; }, {passive:true});
+  stage.addEventListener('touchmove', e => {
+    const dx = e.touches[0].clientX - tx0;
+    angle = ta0 - dx/280;
+    vel = -(e.touches[0].clientX - (e.touches[1]||e.touches[0]).clientX)/280;
+  }, {passive:true});
+
+  /* start when in view */
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting && !started){ started=true; loop(); }
+    }, {threshold:0.2});
+    io.observe(stage);
+  } else { started=true; loop(); }
 })();
 </script>
 
