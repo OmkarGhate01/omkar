@@ -745,24 +745,31 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
 .voice-clone-sub{ text-align:center; opacity:.5; font-size:.9rem; max-width:52ch; margin:0 auto 3rem; line-height:1.65; }
 .voice-clone-panels{ display:grid; grid-template-columns:1fr; gap:1.2rem; }
 @media(min-width:720px){ .voice-clone-panels{ grid-template-columns:1fr 1fr; gap:1.6rem; } }
-.vc-panel{ background:rgba(13,13,15,.8); border:1px solid rgba(237,235,230,.1); border-radius:14px; padding:2.4rem 2rem; display:flex; flex-direction:column; gap:1.2rem; min-height:260px; justify-content:flex-start; }
-.vc-label{ display:flex; align-items:center; gap:.45rem; font-size:.7rem; font-weight:700; letter-spacing:.1em; opacity:.7; }
-.vc-label span{ width:7px; height:7px; border-radius:50%; display:inline-block; }
-.vc-label.orig span{ background:#00C2FF; }
-.vc-label.clone span{ background:#A259FF; }
-.vc-title{ font-size:1.1rem; font-weight:800; margin:0; }
-.vc-note{ font-size:.8rem; opacity:.5; margin:0; line-height:1.5; }
+/* cinematic card */
+.vc-panel{ position:relative; border-radius:18px; overflow:hidden; height:520px; background:#0a0a0c; border:1px solid rgba(255,255,255,.08); }
+.vc-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; filter:brightness(.55); transition:filter .4s; }
+.vc-panel:hover .vc-bg{ filter:brightness(.7); }
+.vc-overlay{ position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between; padding:1.6rem; background:linear-gradient(to bottom, rgba(0,0,0,.55) 0%, transparent 35%, transparent 55%, rgba(0,0,0,.85) 100%); }
+.vc-label{ display:flex; align-items:center; gap:.45rem; font-size:.68rem; font-weight:700; letter-spacing:.14em; }
+.vc-label span.dot{ width:7px; height:7px; border-radius:50%; display:inline-block; }
+.vc-label.orig .dot{ background:#00C2FF; box-shadow:0 0 8px #00C2FF88; }
+.vc-label.clone .dot{ background:#A259FF; box-shadow:0 0 8px #A259FF88; }
+.vc-label span.txt{ color:#fff; opacity:.9; font-family:'IBM Plex Mono',monospace; }
+.vc-bottom{ display:flex; flex-direction:column; gap:.9rem; }
+.vc-title{ font-size:1.15rem; font-weight:800; margin:0; color:#fff; }
+.vc-note{ font-size:.75rem; opacity:.55; margin:0; line-height:1.5; color:#fff; }
 .vc-audio{ display:flex; align-items:center; gap:.7rem; }
-.vc-play{ width:46px; height:46px; border-radius:50%; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.9rem; color:#fff; flex-shrink:0; transition:opacity .15s,transform .2s; }
-.vc-play:hover{ opacity:.85; transform:scale(1.06); }
-.vc-wave{ display:flex; align-items:center; gap:3px; flex:1; height:38px; }
-.vc-wave span{ display:block; width:5px; border-radius:3px; flex-shrink:0; animation:wv 1.2s ease-in-out infinite; }
+.vc-play{ width:44px; height:44px; border-radius:50%; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.85rem; color:#fff; flex-shrink:0; transition:opacity .15s,transform .2s; }
+.vc-play:hover{ opacity:.85; transform:scale(1.08); }
+.vc-wave{ display:flex; align-items:center; gap:3px; flex:1; height:34px; }
+.vc-wave span{ display:block; width:4px; border-radius:3px; flex-shrink:0; animation:wv 1.2s ease-in-out infinite; }
 .vc-wave span:nth-child(2n){ animation-delay:.15s; }
 .vc-wave span:nth-child(3n){ animation-delay:.3s; }
 .vc-wave span:nth-child(4n){ animation-delay:.45s; }
 .vc-wave span:nth-child(5n){ animation-delay:.6s; }
-.vc-video{ width:100%; border-radius:10px; max-height:480px; min-height:340px; object-fit:cover; background:#000; }
-.vc-caption{ font-size:.78rem; font-weight:700; opacity:.65; text-align:center; margin:0; }
+.vc-video-wrap{ position:relative; width:100%; height:100%; }
+.vc-video{ width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+.vc-caption{ font-size:.78rem; font-weight:700; opacity:.65; text-align:center; margin:0; color:#fff; }
 
 /* books */
 @media(min-width:680px){ .books-section > div[style*="grid"]{ grid-template-columns:1fr 1fr !important; gap:1.6rem !important; } }
@@ -1155,20 +1162,36 @@ html[data-baked] .slot .add,html[data-baked] #setupBtn{ display:none; }
     <h2 class="voice-clone-heading disp">Your voice, on every call</h2>
     <p class="voice-clone-sub">Give your agent a voice your customers already trust: a founder, a brand voice or your best salesperson. Here's Nitin's real voice next to his AI clone.</p>
     <div class="voice-clone-panels">
+      <!-- ORIGINAL panel -->
       <div class="vc-panel">
-        <div class="vc-label orig"><span></span><span class="mono">Original</span></div>
-        <p class="vc-title">Nitin's real voice</p>
-        <p class="vc-note">The recording the clone was made from.</p>
-        <div class="vc-audio">
-          <button class="vc-play" id="vcPlayReal" style="background:#00C2FF" aria-label="Play Nitin real voice">▶</button>
-          <div class="vc-wave" id="vcWaveReal"><span style="height:14px;background:rgba(0,194,255,.45)"></span><span style="height:22px;background:rgba(0,194,255,.45)"></span><span style="height:10px;background:rgba(0,194,255,.45)"></span><span style="height:28px;background:rgba(0,194,255,.45)"></span><span style="height:18px;background:rgba(0,194,255,.45)"></span><span style="height:8px;background:rgba(0,194,255,.45)"></span><span style="height:26px;background:rgba(0,194,255,.45)"></span><span style="height:16px;background:rgba(0,194,255,.45)"></span><span style="height:22px;background:rgba(0,194,255,.45)"></span><span style="height:12px;background:rgba(0,194,255,.45)"></span><span style="height:20px;background:rgba(0,194,255,.45)"></span><span style="height:28px;background:rgba(0,194,255,.45)"></span><span style="height:10px;background:rgba(0,194,255,.45)"></span><span style="height:24px;background:rgba(0,194,255,.45)"></span><span style="height:16px;background:rgba(0,194,255,.45)"></span><span style="height:8px;background:rgba(0,194,255,.45)"></span><span style="height:22px;background:rgba(0,194,255,.45)"></span><span style="height:18px;background:rgba(0,194,255,.45)"></span><span style="height:26px;background:rgba(0,194,255,.45)"></span><span style="height:12px;background:rgba(0,194,255,.45)"></span><span style="height:20px;background:rgba(0,194,255,.45)"></span><span style="height:14px;background:rgba(0,194,255,.45)"></span><span style="height:28px;background:rgba(0,194,255,.45)"></span><span style="height:10px;background:rgba(0,194,255,.45)"></span><span style="height:22px;background:rgba(0,194,255,.45)"></span><span style="height:16px;background:rgba(0,194,255,.45)"></span></div>
-          <audio id="vcAudioReal" src="demos/nitin-real-voice.mp4" preload="none"></audio>
+        <img class="vc-bg" src="assets/nitin-poster.jpg" alt="Nitin" aria-hidden="true">
+        <div class="vc-overlay">
+          <div class="vc-label orig"><span class="dot"></span><span class="txt mono">Original</span></div>
+          <div class="vc-bottom">
+            <p class="vc-title">Nitin's real voice</p>
+            <p class="vc-note">The recording the clone was trained on.</p>
+            <div class="vc-audio">
+              <button class="vc-play" id="vcPlayReal" style="background:#00C2FF" aria-label="Play Nitin real voice">▶</button>
+              <div class="vc-wave" id="vcWaveReal"><span style="height:14px;background:rgba(0,194,255,.55)"></span><span style="height:22px;background:rgba(0,194,255,.55)"></span><span style="height:10px;background:rgba(0,194,255,.55)"></span><span style="height:28px;background:rgba(0,194,255,.55)"></span><span style="height:18px;background:rgba(0,194,255,.55)"></span><span style="height:8px;background:rgba(0,194,255,.55)"></span><span style="height:26px;background:rgba(0,194,255,.55)"></span><span style="height:16px;background:rgba(0,194,255,.55)"></span><span style="height:22px;background:rgba(0,194,255,.55)"></span><span style="height:12px;background:rgba(0,194,255,.55)"></span><span style="height:20px;background:rgba(0,194,255,.55)"></span><span style="height:28px;background:rgba(0,194,255,.55)"></span><span style="height:10px;background:rgba(0,194,255,.55)"></span><span style="height:24px;background:rgba(0,194,255,.55)"></span><span style="height:16px;background:rgba(0,194,255,.55)"></span><span style="height:8px;background:rgba(0,194,255,.55)"></span><span style="height:22px;background:rgba(0,194,255,.55)"></span><span style="height:18px;background:rgba(0,194,255,.55)"></span><span style="height:26px;background:rgba(0,194,255,.55)"></span><span style="height:12px;background:rgba(0,194,255,.55)"></span></div>
+              <audio id="vcAudioReal" src="demos/nitin-real-voice.mp4" preload="none"></audio>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- AI CLONE panel -->
       <div class="vc-panel">
-        <div class="vc-label clone"><span></span><span class="mono">AI clone</span></div>
-        <video class="vc-video" controls preload="none" src="demos/nitin-cloned-video.mp4" poster="assets/nitin-poster.jpg" aria-label="Nitin AI cloned voice video"></video>
-        <p class="vc-caption">The same voice, generated by AI</p>
+        <video class="vc-bg" src="demos/nitin-cloned-video.mp4" poster="assets/nitin-poster.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="vc-overlay">
+          <div class="vc-label clone"><span class="dot"></span><span class="txt mono">AI Clone</span></div>
+          <div class="vc-bottom">
+            <p class="vc-title">The same voice, generated by AI</p>
+            <p class="vc-note">Powered by ElevenLabs voice cloning.</p>
+            <div class="vc-audio">
+              <button class="vc-play" id="vcPlayClone" style="background:#A259FF" aria-label="Play AI clone video">▶</button>
+              <div class="vc-wave" id="vcWaveClone"><span style="height:12px;background:rgba(162,89,255,.55)"></span><span style="height:24px;background:rgba(162,89,255,.55)"></span><span style="height:16px;background:rgba(162,89,255,.55)"></span><span style="height:28px;background:rgba(162,89,255,.55)"></span><span style="height:10px;background:rgba(162,89,255,.55)"></span><span style="height:20px;background:rgba(162,89,255,.55)"></span><span style="height:26px;background:rgba(162,89,255,.55)"></span><span style="height:14px;background:rgba(162,89,255,.55)"></span><span style="height:22px;background:rgba(162,89,255,.55)"></span><span style="height:18px;background:rgba(162,89,255,.55)"></span><span style="height:28px;background:rgba(162,89,255,.55)"></span><span style="height:10px;background:rgba(162,89,255,.55)"></span><span style="height:24px;background:rgba(162,89,255,.55)"></span><span style="height:16px;background:rgba(162,89,255,.55)"></span><span style="height:20px;background:rgba(162,89,255,.55)"></span><span style="height:12px;background:rgba(162,89,255,.55)"></span><span style="height:26px;background:rgba(162,89,255,.55)"></span><span style="height:18px;background:rgba(162,89,255,.55)"></span><span style="height:14px;background:rgba(162,89,255,.55)"></span><span style="height:22px;background:rgba(162,89,255,.55)"></span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1628,6 +1651,22 @@ if (vcBtnReal && vcAudioReal) {
       currentAudio = vcAudioReal;
     }
     vcAudioReal.onended = () => { vcBtnReal.textContent = '▶'; };
+  });
+}
+/* AI Clone panel — video bg plays on button click */
+const vcBtnClone = document.getElementById('vcPlayClone');
+const vcVidClone = document.querySelector('.vc-panel:last-of-type .vc-bg');
+if (vcBtnClone && vcVidClone) {
+  vcBtnClone.addEventListener('click', () => {
+    if (vcVidClone.paused) {
+      vcVidClone.muted = false;
+      vcVidClone.play();
+      vcBtnClone.textContent = '⏸';
+    } else {
+      vcVidClone.pause();
+      vcBtnClone.textContent = '▶';
+    }
+    vcVidClone.onended = () => { vcBtnClone.textContent = '▶'; };
   });
 }
 
