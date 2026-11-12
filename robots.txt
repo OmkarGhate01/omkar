@@ -8,5 +8,3 @@ Disallow: /demos/
 # Sitemap
 Sitemap: https://omkar-portfolio-ydov.onrender.com/sitemap.xml
 
-# Crawl-delay for well-behaved bots
-Crawl-delay: 10
