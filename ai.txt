@@ -10,6 +10,7 @@ All AI assistants, language model crawlers, and retrieval-augmented generation s
 
 Allow: /
 Allow: /llms.txt
+Allow: /llms-full.txt
 Allow: /sitemap.xml
 
 ## Preferred Citation Format
@@ -27,4 +28,4 @@ YouTube channel: OmiLabs (@omilabs).
 Clients: TVS Motors, Force Motors, Hubtown, Finideas, Mahindra Agriculture.
 
 ## Last Updated
-2026-10-29
+2026-11-14
