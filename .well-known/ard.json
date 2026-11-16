@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:omkar-portfolio-ydov.onrender.com:profile:llms",
+      "displayName": "Omkar Vijay Ghate — site summary for AI (llms.txt)",
+      "type": "text/markdown",
+      "url": "https://omkar-portfolio-ydov.onrender.com/llms.txt",
+      "description": "Concise, machine-readable profile of Omkar Vijay Ghate, Agentic AI Architect and voice-agent builder in Mumbai, with links to work, blog articles and contact.",
+      "representativeQueries": [
+        "Who is Omkar Ghate?",
+        "AI voice agent developer in Mumbai",
+        "Omkar Ghate portfolio"
+      ]
+    },
+    {
+      "identifier": "urn:air:omkar-portfolio-ydov.onrender.com:profile:llms-full",
+      "displayName": "Omkar Vijay Ghate — full profile and articles (llms-full.txt)",
+      "type": "text/markdown",
+      "url": "https://omkar-portfolio-ydov.onrender.com/llms-full.txt",
+      "description": "Full text profile, projects and articles by Omkar Vijay Ghate on voice AI, agentic AI, prompt engineering and workflow automation.",
+      "representativeQueries": [
+        "Omkar Ghate articles on voice AI",
+        "Omkar Ghate projects"
+      ]
+    },
+    {
+      "identifier": "urn:air:omkar-portfolio-ydov.onrender.com:profile:catalog",
+      "displayName": "Omkar Vijay Ghate — structured profile (JSON-LD)",
+      "type": "application/ld+json",
+      "url": "https://omkar-portfolio-ydov.onrender.com/ai-catalog.json",
+      "description": "Schema.org structured data describing Omkar Vijay Ghate, his skills and public profiles."
+    }
+  ]
+}

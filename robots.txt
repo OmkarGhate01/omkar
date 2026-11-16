@@ -8,3 +8,6 @@ Disallow: /demos/
 # Sitemap
 Sitemap: https://omkar-portfolio-ydov.onrender.com/sitemap.xml
 
+
+# Agentic Resource Discovery manifest
+Agentmap: https://omkar-portfolio-ydov.onrender.com/.well-known/ard.json
