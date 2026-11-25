@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Allow: /demos/nitin-cloned-video.mp4
 Disallow: /demos/
 
 # Sitemap

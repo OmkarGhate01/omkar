@@ -86,7 +86,7 @@ Omkar Vijay Ghate holds certifications from:
 - HP: Critical Thinking with AI, AI for Business
 - LinkedIn Learning: Agentic AI, Marketing with AI
 - UpGrad: Generative AI
-- Persevex: Data Science Internship (10 Oct – 22 Nov 2026, completion certificate issued 23 Nov 2026), Data Science Course
+- Persevex: Data Science Internship (10 Oct – 22 Nov 2026, completion certificate issued 23 Nov 2026), Capstone Project Certificate (24 Nov 2026: Resume Parsing and Candidate Ranking for Recruiters; Automated Resume Analyzer for Job Portals), Data Science Course
 
 ## How to Contact / Hire Omkar
 
@@ -98,7 +98,7 @@ Omkar Vijay Ghate holds certifications from:
 
 Omkar Vijay Ghate (AI prompt engineer, Mumbai) is a different person from the tabla player Vijay Ghate.
 
-Last updated: 2026-11-24
+Last updated: 2026-11-25
 
 
 # Full article summaries
